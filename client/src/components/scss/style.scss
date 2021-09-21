@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Indie+Flower&display=swap');
+
+$wallpaper: url('../images/background.jpg');
+
+body {
+    background: $wallpaper no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+@function set_W($width, $propriety) {
+    $propriety: $width;
+    @return $propriety;
+}
+
+@function set_H($height, $propriety) {
+    $propriety: $height;
+    @return $propriety;
+}
+
+@function set_margin-top($margin, $propriety) {
+    $propriety: $margin;
+    @return $propriety;
+}
+
+@mixin set_font_awesome($size, $mTop, $mRight, $mBottom, $mLeft, $color) {
+    font-size: $size;
+    margin: $mTop $mRight $mBottom $mLeft;
+    color: $color;
+}
+
+@mixin set_text_shadow($r1:1px,$b1:1px,$s1:1px,$c1:rgb(0, 7, 73), $r2:-1px,$b2:-1px,$s2:8px,$c2:rgb(100, 5, 7)) {
+    text-shadow: $r1 $b1 $s1 $c1, $r2 $b2 $s2 $c2;
+}
+
+@mixin set_text($family, $type, $size, $weight, $transform, $spacing, $color) {
+    font-family: $family, $type;
+    font-size: $size;
+    color:$color;
+    font-weight:$weight;
+    letter-spacing: $spacing;
+    text-transform: $transform;
+
+    @include set_text_shadow();
+}
+
+@mixin set_margin_top_of_screen($value) {
+    margin-top: $value;
+}
+
+@mixin style_content_bg($op, $w, $h, $rad) {
+    opacity: $op;
+    width:set_W($w,width);
+    height: set_H($h,height);
+    border-radius:$rad;
+}
+
+.content-box {
+    width: set_W(auto,width);
+    height: set_H(auto,height);
+    position:relative;
+    @include set_margin_top_of_screen(-500px);
+    display: grid;
+    
+    & h1 {
+        @include set_text('Poiret One',cursive,45px,bold,none,5px,rgb(126, 0, 48));
+    }
+
+    & input[type=text]:not(.textarea) {
+        background-color: rgba(126, 0, 48, 0.24);
+
+        @include set_text('Poiret One',cursive,20px,none,none,1px,white);
+        border:0px;
+        width:set_W(250px,width);
+        height: set_H(60px, height);
+        text-align: center;
+
+        &:focus {
+            outline: none;
+            background-color: rgba(0, 16, 85, 0.678);
+
+            &::placeholder {
+                opacity:0;
+                text-shadow: none;
+            }
+        }
+
+        &:hover {
+            background-color: rgba(126, 0, 48, 0.473);
+            transition: 0.2s ease-in;
+
+            &::placeholder {
+                color:rgb(126, 0, 48);
+                text-shadow: 1px 1px 1.5px rgb(255, 10, 104);
+                transition: .2s ease-in;
+            }
+        }
+    }
+
+    & .user-name {
+        border-radius: 20px 20px 0 0;
+    }
+
+    & .button-go {
+        
+        & .but-submit {
+            padding: 15px 0;
+            background-color: rgb(104, 0, 61);
+            border: none;
+            border-bottom: 5px solid rgba(104, 0, 61, 0.103);
+            border-right: 5px solid rgba(104, 0, 61, 0.178);
+            border-left: 5px solid rgba(104, 0, 61, 0.089);
+            width:set_W(252px,width);
+            @include set_text('Poiret One',cursive,24px,none,uppercase,2px,whitesmoke);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 5px 5px 20px -5px rgb(0, 16, 85);
+
+            &:hover {
+                background-color: rgb(0, 16, 85);
+                transition: .2s ease-in-out;
+                cursor: pointer;
+            }
+        }
+    }
+
+    & .font-aws {
+        position: absolute;
+        @include set_font_awesome(1.5rem,20px,0,0,10px,rgb(126, 0, 48));
+        @include set_text_shadow();
+    }
+
+    & .send-mess {
+        @include set_margin_top_of_screen(-60px);
+
+        & .textarea {
+            border:none;
+            background-color: rgba(0, 16, 85, 0.658);
+            border-radius:40px;
+            box-shadow: 5px 5px 20px -5px rgb(0, 16, 85) ;
+            border: 1px solid rgba(3, 0, 39, 0.096);
+            resize:none;
+            overflow:hidden;
+
+            margin-left: -130px;
+
+            min-width: set_W(450px,min-width);
+            min-height: set_H(58px,min-height);
+
+            text-align: left;
+            padding: 0 16px;
+
+            @include set_text('Handlee',cursive,15px,400,none,1px,azure);
+
+            &:focus {
+                outline:none;
+                border: 1px solid rgba(3, 0, 39, 0.034);
+                background-color: rgba(2, 32, 165, 0.452);
+                
+                &::placeholder {
+                    opacity:0;
+                }
+            }
+
+            &:hover {
+                background-color: rgba(2, 32, 165, 0.452);
+                transition: .4s linear;
+                
+                &::placeholder {
+                    color:rgb(125, 149, 255);
+                    text-shadow: 0 0 2px aliceblue;
+                    transition: .2s ease-in;
+                }
+            } 
+        }
+
+        & .but-send {
+            background-color: rgb(126, 0, 48);
+            border: none;
+            border:5px solid rgba(125, 149, 255, 0.342);
+            padding:10px;
+            border-radius: 25px;
+            
+            position:absolute;
+
+            margin-left:12px;
+            margin-top:4px;
+
+            @include set_text('Handlee',cursive,16px,bold,none,1px,rgb(125, 149, 255));
+
+            &:hover {
+                background-color:rgb(1, 9, 121);
+                border:5px solid rgba(2, 1, 82, 0.342);
+                cursor: pointer;
+                transition: .2s ease-in;
+            }
+
+            & .font-aws-send {
+                @include set_font_awesome(1.2rem,0,2px,0,5px,rgb(125, 149, 255));
+            }
+        }
+    }
+
+    & .infobar {
+        width: set_W(650px,width);
+        height: set_H(60px,height);
+        background-color: rgb(126, 0, 48);
+
+        @include set_text('Poiret One',cursive,16px,none,none,4px,rgb(125, 149, 255));
+        
+        margin: -150px auto;
+        border-radius: 100px 100px 0 0;
+
+        & .font-aws-comments {
+            @include set_font_awesome(2.2rem,10px,12px,0,-20px,rgb(125, 149, 255));       
+        }
+
+        & .font-aws-exit {
+            @include set_font_awesome(1.2rem,20px,-10px,0,0,rgb(125, 149, 255));  
+            cursor: pointer;
+            
+            &:hover {
+                color: rgb(1, 9, 121);
+                transition:.2s linear;
+            }
+        }
+
+        & > div {
+            display: inline-flex;
+            margin: 0 50px;
+        }
+
+        & .leftContainer {
+            float: left;
+        }
+        
+        & .rightContainer {
+            float: right;
+            position: relative;
+        }
+    }
+
+    & .content-messages {
+        height: set_H(480px, height);
+    }
+
+    & .all-users-messages {
+        width: set_W(610px, width);
+        height: set_H(inherit, height);
+
+        margin: -80px auto 0 auto;
+        text-align:justify;
+
+        display:inline-grid;
+
+        overflow-y:auto;
+
+        padding: 0;
+
+        & .mess-container {
+            color:aliceblue;
+            display: inline-flex;
+            @include set_text('Handlee',cursive,14px,400,none,1px,azure);
+
+            & .send-name-user {
+                color:lightgray;
+                padding-top:10px;
+            }
+
+            & .user-message {
+                padding: 0 16px;
+                margin: 6px 0;
+                border-radius: 10px;
+            }
+        }
+
+        & .align-right {
+            float: right;
+            margin-left:280px;
+
+            & .bgRed {
+                margin-left: 8px;
+                margin-right: 2px;
+                background-color: rgb(126, 0, 48);
+            }
+        }
+
+        & .align-left {
+            float: left;
+            margin-right:280px;
+
+            & .bgBlue {
+                margin-right: 8px;
+                background-color: rgb(0, 16, 85);
+            }
+        }
+    }
+
+}
+
+.content-bg {
+    background-image: url("../images/Frost.jpg");
+    background-size: cover;
+    position: relative;
+    margin:0 auto;
+    box-shadow: 5px 5px 20px -5px rgb(0, 16, 85) ;
+    border: 4px solid rgba(0, 16, 85, 0.863);
+    
+    @include style_content_bg(.5,550px,550px,50%);
+}
+
+#messaging-box {
+    @include style_content_bg(.8,650px,650px,10%);
+    border:1px solid rgba(0, 16, 85, 0.863);
+}
+
+.content {
+    width:set_W(auto,width);
+    height:set_H(auto,height);
+    text-align: center;
+    
+    @include set_margin_top_of_screen(200px);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 16, 85, 0.459);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 16, 85, 0.747);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 16, 85); 
+}
