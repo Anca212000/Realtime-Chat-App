@@ -1,9 +1,9 @@
 # Realtime-Chat-App
-ReactJS, Node.js and Socket.io App
+ReactJS, Node.js, Socket.io, SCSS App
 
 ![3](https://user-images.githubusercontent.com/79717589/134214170-33b1e1f6-7c93-4333-8317-216b89db7f93.png)
 
-This is an app that was programmed using React.js library, servers from Node.js and the realtime connections between these servers was handled by Socket.io library.
+This is an app that was programmed using React.js library, servers from Node.js and the realtime connections between these servers was handled by Socket.io library. The design of the app was coded using SCSS framework.
 
 Briefly explained, this is a web chat application where the users can be connected in the same time from different browsers by choosing the meeting room and finally there, they can text each other.
 Firstly, the user should choose what chatroom he/she wants to send messages and also, receive these from other online persons, by typing the name of the room and of course, his/her name. This thing can be easily done when the app is accessed and the first page is the login one.
