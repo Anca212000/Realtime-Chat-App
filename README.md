@@ -1,5 +1,5 @@
 # Realtime-Chat-App
-ReactJS, Node.js, Socket.io, SCSS App
+## ReactJS, Node.js, Socket.io, SCSS App
 
 ![3](https://user-images.githubusercontent.com/79717589/134214170-33b1e1f6-7c93-4333-8317-216b89db7f93.png)
 
@@ -20,4 +20,4 @@ Furthermore, the users can text with emoji symbols 😉.
 
 The application is hosted and you can see how it works by clicking on the link below:
 
-https://613735c45228717701eae08d--flamboyant-leakey-27ed99.netlify.app/
+[Click here](https://reactjs-chat-message-app.netlify.app/)
